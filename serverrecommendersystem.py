@@ -124,6 +124,7 @@ except IOError:
 @app.route("/recommend/user/<id>", methods=["GET"])
 def recommendforuser(id):
     list_item = rs.recommend(int(id))
-    return jsonify({'item': list_item})
 
-app.run(debug=True)
+    return jsonify({'item': list_item}, 'https://gateway.chotot.com/v1/public/ad-listing/productId')
+
+app.run(host = '0.0.0.0')
